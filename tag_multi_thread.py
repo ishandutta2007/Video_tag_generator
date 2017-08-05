@@ -30,10 +30,10 @@ def pat_to_wav(file_pattern):
     print("Following files are selected: ", filenames)
     ret = []
     for filename in filenames:
-        cmd = 'ffmpeg -y -i '+ filename +' -vn -acodec pcm_s16le -ar 44100 -ac 2 ' + filename[:-4]+'_n_.wav'
+        cmd = 'ffmpeg -y -i '+ filename +' -vn -acodec pcm_s16le -ar 44100 -ac 2 ' + filename[:-4]+'.wav'
         p = sp.Popen(cmd,shell=True, stdout=sp.PIPE, stderr=sp.PIPE)
         out, err = p.communicate()
-        ret.append(filename[:-4]+'_n_.wav')
+        ret.append(filename[:-4]+'.wav')
     return ret
 
 def get_audio(filename):
